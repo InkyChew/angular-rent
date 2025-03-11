@@ -1,0 +1,29 @@
+<div class="review-container">
+    <ng-template [ngTemplateOutlet]="reviewTemplate" [ngTemplateOutletContext]="{ reviews: reviews }"></ng-template>
+</div>
+
+<ng-template #reviewTemplate let-reviews="reviews">
+    @for (review of reviews; track $index) {
+    <mat-card class="review-card">
+        <mat-card-content>
+            <div class="review-card-header">
+                <span class="review-title">{{ review.username }}</span>
+                <span class="review-subtitle">{{ review.createdAt }}</span>
+            </div>
+            <p>{{ review.content }}</p>
+        </mat-card-content>
+
+        @if (review.replies && review.replies.length > 0) {
+        <mat-accordion class="review-replies">
+            <mat-expansion-panel>
+                <mat-expansion-panel-header>
+                    <mat-panel-title class="review-reply-title"></mat-panel-title>
+                </mat-expansion-panel-header>
+                <ng-template [ngTemplateOutlet]="reviewTemplate"
+                    [ngTemplateOutletContext]="{ reviews: review.replies }"></ng-template>
+            </mat-expansion-panel>
+        </mat-accordion>
+        }
+    </mat-card>
+    }
+</ng-template>

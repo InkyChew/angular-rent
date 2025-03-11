@@ -11,6 +11,10 @@
 
     .review-replies {
         margin-top: 1em;
+        .review-reply {
+            box-shadow: none;
+            background-color: var(--mdc-elevated-card-container-color, var(--mat-sys-surface-container-low));
+        }
         .review-reply-title {
             justify-content: flex-end;
         }

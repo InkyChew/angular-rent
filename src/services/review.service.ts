@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { IReview } from '../models/review';
+import { User } from '../models/user';
 
 @Injectable({
   providedIn: 'root'
@@ -9,20 +10,29 @@ export class ReviewService {
   reviews: IReview[] = [
     {
       id: 1,
-      username: 'John Doe',
+      user: { ...new User(), name: 'John Doe' },
+      startAt: new Date(),
+      endAt: new Date(),
       content: 'This is a great product!',
+      rate: 4,
       createdAt: '2025-03-10',
       replies: [
         {
           id: 2,
-          username: 'Jane Smith',
+          user: { ...new User(), name: 'Jane Smith' },
+          startAt: new Date(),
+          endAt: new Date(),
           content: 'I agree, it\'s really useful!',
+          rate: 1,
           createdAt: '2025-03-11',
           replies: [
             {
               id: 4,
-              username: 'Mark Chen',
+              user: { ...new User(), name: 'Mark Chen' },
+              startAt: new Date(),
+              endAt: new Date(),
               content: 'Thanks guy.',
+              rate: 5,
               createdAt: '2025-03-12',
               replies: [],
             },
@@ -30,8 +40,11 @@ export class ReviewService {
         },
         {
           id: 4,
-          username: 'Inky Chew',
+          user: { ...new User(), name: 'Inky Chew' },
+          startAt: new Date(),
+          endAt: new Date(),
           content: 'Wow.',
+          rate: 3.5,
           createdAt: '2025-03-12',
           replies: [],
         },
@@ -39,8 +52,11 @@ export class ReviewService {
     },
     {
       id: 3,
-      username: 'Alice Johnson',
+      user: { ...new User(), name: 'Alice Johnson' },
+      startAt: new Date(),
+      endAt: new Date(),
       content: 'I didn\'t like this product at all.',
+      rate: 2,
       createdAt: '2025-03-09',
       replies: [],
     },

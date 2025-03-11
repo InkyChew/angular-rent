@@ -7,7 +7,8 @@
     <mat-card class="review-card">
         <mat-card-content>
             <div class="review-card-header">
-                <span class="review-title">{{ review.username }}</span>
+                <span class="review-title">{{ review.user.name }}</span>
+                <span class="review-title">{{ review.startAt | date: 'yy/MM/dd' }} - {{ review.endAt | date: 'yy/MM/dd' }}</span>
                 <span class="review-subtitle">{{ review.createdAt }}</span>
             </div>
             <p>{{ review.content }}</p>
@@ -15,7 +16,7 @@
 
         @if (review.replies && review.replies.length > 0) {
         <mat-accordion class="review-replies">
-            <mat-expansion-panel>
+            <mat-expansion-panel class="review-reply">
                 <mat-expansion-panel-header>
                     <mat-panel-title class="review-reply-title"></mat-panel-title>
                 </mat-expansion-panel-header>

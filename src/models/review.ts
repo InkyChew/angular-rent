@@ -3,8 +3,8 @@ import { User } from "./user";
 export interface IReview {
     id: number;
     user: User;
-    startAt: Date;
-    endAt: Date;
+    startAt: string;
+    endAt: string;
     content: string;
     rate: number;
     createdAt: string;
